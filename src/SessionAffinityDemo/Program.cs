@@ -1,15 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
 var app = builder.Build();
-
-app.UseSwagger();
-app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
@@ -25,7 +19,6 @@ app.MapGet("/", (HttpContext context) =>
     }
 
     return $"Session ID: {id}";
-})
-.WithOpenApi();
+});
 
 app.Run();
