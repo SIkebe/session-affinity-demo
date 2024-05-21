@@ -22,7 +22,7 @@ jobs:
         include-prerelease: True
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Log in to container registry
-      uses: azure/docker-login@v1
+      uses: azure/docker-login@v2
       with:
         login-server: ${{ env.CONTAINER_REGISTRY_LOGIN_SERVER }}
         username: ${{ secrets.sessionaffinitydemoacr_USERNAME_92A7 }}
